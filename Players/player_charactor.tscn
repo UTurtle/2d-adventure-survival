@@ -1,0 +1,91 @@
+[gd_scene load_steps=19 format=3 uid="uid://ctn1rajvkfbvi"]
+
+[ext_resource type="Script" path="res://Players/player.gd" id="1_dj707"]
+[ext_resource type="PackedScene" uid="uid://cnpjf77xsq3i" path="res://Entities/Attributes/afterimage.tscn" id="2_eyp52"]
+[ext_resource type="Texture2D" uid="uid://cxv10rqspq10c" path="res://Assets/heroes/knight/knight_idle_anim_f0.png" id="3_f0hth"]
+[ext_resource type="Texture2D" uid="uid://gd16m3j77by2" path="res://Assets/heroes/knight/knight_idle_anim_f1.png" id="4_inqb0"]
+[ext_resource type="Texture2D" uid="uid://dskpuyh4ik24e" path="res://Assets/heroes/knight/knight_idle_anim_f2.png" id="5_5iwv8"]
+[ext_resource type="Texture2D" uid="uid://dugw2gaic12fu" path="res://Assets/heroes/knight/knight_idle_anim_f3.png" id="6_bt3hs"]
+[ext_resource type="Texture2D" uid="uid://3ds2xc3qrfve" path="res://Assets/heroes/knight/knight_idle_anim_f4.png" id="7_32b4g"]
+[ext_resource type="Texture2D" uid="uid://bsggm0ehsytvi" path="res://Assets/heroes/knight/knight_idle_anim_f5.png" id="8_qysaa"]
+[ext_resource type="Texture2D" uid="uid://4tdpo7wrprm3" path="res://Assets/heroes/knight/knight_run_anim_f0.png" id="9_cdjfl"]
+[ext_resource type="Texture2D" uid="uid://c34ljpwno3f2u" path="res://Assets/heroes/knight/knight_run_anim_f1.png" id="10_fsf4i"]
+[ext_resource type="Texture2D" uid="uid://bysr7y8qcdbp0" path="res://Assets/heroes/knight/knight_run_anim_f2.png" id="11_k32mb"]
+[ext_resource type="Texture2D" uid="uid://ddajoryjna8mx" path="res://Assets/heroes/knight/knight_run_anim_f3.png" id="12_rdaou"]
+[ext_resource type="Texture2D" uid="uid://qlmoqodatny5" path="res://Assets/heroes/knight/knight_run_anim_f4.png" id="13_p0ggx"]
+[ext_resource type="Texture2D" uid="uid://dcmldg66etnjp" path="res://Assets/heroes/knight/knight_run_anim_f5.png" id="14_ypgjj"]
+[ext_resource type="PackedScene" uid="uid://cuqkpuv42j5ks" path="res://Entities/Attributes/dash.tscn" id="15_s86bd"]
+[ext_resource type="PackedScene" uid="uid://bip7n0baerw3v" path="res://Items/Weapons/RangeWeapons/gun.tscn" id="16_be0s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qssnm"]
+size = Vector2(7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_su4bl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f0hth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_inqb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5iwv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bt3hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_32b4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qysaa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_cdjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fsf4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k32mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rdaou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p0ggx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ypgjj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_dj707")
+afterimage = ExtResource("2_eyp52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_qssnm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_su4bl")
+animation = &"walk"
+
+[node name="Dash" parent="." instance=ExtResource("15_s86bd")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Weapons" type="Node2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("16_be0s3")]
+position = Vector2(0, 3)

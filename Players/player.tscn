@@ -1,97 +1,45 @@
-[gd_scene load_steps=20 format=3 uid="uid://gpmw0mvemtrr"]
+[gd_scene load_steps=6 format=3 uid="uid://gpmw0mvemtrr"]
 
-[ext_resource type="Script" path="res://Players/player.gd" id="1_y71eq"]
-[ext_resource type="PackedScene" uid="uid://cnpjf77xsq3i" path="res://Entities/Attributes/afterimage.tscn" id="2_e7o2w"]
-[ext_resource type="Texture2D" uid="uid://cxv10rqspq10c" path="res://Assets/heroes/knight/knight_idle_anim_f0.png" id="2_gs7so"]
-[ext_resource type="Texture2D" uid="uid://gd16m3j77by2" path="res://Assets/heroes/knight/knight_idle_anim_f1.png" id="3_jgrsi"]
-[ext_resource type="PackedScene" uid="uid://bip7n0baerw3v" path="res://Items/Weapons/RangeWeapons/gun.tscn" id="3_jltu4"]
-[ext_resource type="Texture2D" uid="uid://dskpuyh4ik24e" path="res://Assets/heroes/knight/knight_idle_anim_f2.png" id="4_oh8r7"]
-[ext_resource type="Texture2D" uid="uid://dugw2gaic12fu" path="res://Assets/heroes/knight/knight_idle_anim_f3.png" id="5_lm82h"]
-[ext_resource type="Texture2D" uid="uid://3ds2xc3qrfve" path="res://Assets/heroes/knight/knight_idle_anim_f4.png" id="6_b71hh"]
-[ext_resource type="Texture2D" uid="uid://bsggm0ehsytvi" path="res://Assets/heroes/knight/knight_idle_anim_f5.png" id="7_n0j2g"]
-[ext_resource type="Texture2D" uid="uid://4tdpo7wrprm3" path="res://Assets/heroes/knight/knight_run_anim_f0.png" id="8_mi4xx"]
-[ext_resource type="Texture2D" uid="uid://c34ljpwno3f2u" path="res://Assets/heroes/knight/knight_run_anim_f1.png" id="9_e8t2u"]
-[ext_resource type="Texture2D" uid="uid://bysr7y8qcdbp0" path="res://Assets/heroes/knight/knight_run_anim_f2.png" id="10_0vql6"]
-[ext_resource type="Texture2D" uid="uid://ddajoryjna8mx" path="res://Assets/heroes/knight/knight_run_anim_f3.png" id="11_bkhbe"]
-[ext_resource type="Texture2D" uid="uid://qlmoqodatny5" path="res://Assets/heroes/knight/knight_run_anim_f4.png" id="12_q8wms"]
-[ext_resource type="Texture2D" uid="uid://dcmldg66etnjp" path="res://Assets/heroes/knight/knight_run_anim_f5.png" id="13_bevo8"]
-[ext_resource type="PackedScene" uid="uid://cuqkpuv42j5ks" path="res://Entities/Attributes/dash.tscn" id="14_xhy73"]
+[ext_resource type="PackedScene" uid="uid://ctn1rajvkfbvi" path="res://Players/player_charactor.tscn" id="1_5t2uv"]
+[ext_resource type="Script" path="res://Players/PlayerGUI.gd" id="3_0kyds"]
 [ext_resource type="PackedScene" uid="uid://2wg3hpkkqrak" path="res://Entities/Attributes/cursor.tscn" id="15_uui6b"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qssnm"]
-size = Vector2(7, 7)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji6i8"]
+bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_su4bl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_gs7so")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_jgrsi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_oh8r7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_lm82h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_b71hh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_n0j2g")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_mi4xx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_e8t2u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_0vql6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_bkhbe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_q8wms")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_bevo8")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfdwe"]
+bg_color = Color(0.686526, 0.107614, 0, 1)
 
 [node name="Player" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_y71eq")
-afterimage = ExtResource("2_e7o2w")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_5t2uv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_qssnm")
+[node name="PlayerGUI" type="Control" parent="CharacterBody2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_0kyds")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_su4bl")
-animation = &"walk"
+[node name="ScoreLabel" type="Label" parent="CharacterBody2D/PlayerGUI"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 46.0
+offset_right = 31.0
+offset_bottom = 69.0
+text = "Score: 0"
+horizontal_alignment = 1
 
-[node name="Dash" parent="CharacterBody2D" instance=ExtResource("14_xhy73")]
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
-[node name="Weapons" type="Node2D" parent="CharacterBody2D"]
-
-[node name="Gun" parent="CharacterBody2D" instance=ExtResource("3_jltu4")]
-position = Vector2(0, 3)
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D/PlayerGUI"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 68.0
+offset_right = 28.0
+offset_bottom = 74.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ji6i8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bfdwe")
+value = 5.0
+show_percentage = false
 
 [node name="Cursor" parent="." instance=ExtResource("15_uui6b")]
-position = Vector2(1, -18)
+position = Vector2(0, -33)

@@ -1,8 +1,12 @@
 extends CharacterBody2D
 class_name Enemy
 
+@export var health = 1
 @export var speed = 1
+@export var score = 1
+@export var melee_damage = 1
 @onready var _sprite = $AnimatedSprite2D
+@onready var animation = $AnimationPlayer
 
 func get_input():
 	var player = get_parent().get_node("Player").get_node("CharacterBody2D")
@@ -21,7 +25,15 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
-	
+func _process(delta):
+	if health <= 0:
+		_on_death()
+		self.set_process(false)
+		self.set_physics_process(false)
+
+func _on_death():
+	Global.score += score
+	animation.play("die")
 
 #if Input.is_action_pressed("left"):
 		#_sprite.flip_h = true

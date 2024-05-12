@@ -3,6 +3,7 @@ class_name Bullet
 
 @export var speed = 250
 @export var dur = 1
+@export var damage = 1
 @onready var timer = $Timer
 
 func _ready():
@@ -18,5 +19,8 @@ func _on_timer_timeout():
 func _on_area_2d_area_entered(area):
 	var entity = area.get_parent()
 	if entity is Enemy:
-		entity.get_node("AnimationPlayer").play("die")
+		if entity.health > 0:
+			entity.health -= damage
+			queue_free()
+
 
