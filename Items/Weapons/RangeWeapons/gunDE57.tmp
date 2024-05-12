@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bip7n0baerw3v"]
+
+[ext_resource type="Script" path="res://Items/Weapons/RangeWeapons/gun.gd" id="1_biq4b"]
+[ext_resource type="Texture2D" uid="uid://bl7qn837octbj" path="res://Assets/props_itens/key_silver.png" id="1_wsna3"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_biq4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wsna3")
+
+[node name="ShootPos" type="Marker2D" parent="."]
+position = Vector2(9, 0)

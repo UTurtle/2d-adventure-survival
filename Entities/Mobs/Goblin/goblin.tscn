@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4jor5jiy6t8a"]
+
+[ext_resource type="Script" path="res://Entities/Mobs/Goblin/goblin.gd" id="1_ynoq4"]
+[ext_resource type="Texture2D" uid="uid://dqxwgkxyfiat3" path="res://Assets/enemies/goblin/goblin_idle_anim_f0.png" id="2_p3ekd"]
+[ext_resource type="Texture2D" uid="uid://cirbbf4q45iq1" path="res://Assets/enemies/goblin/goblin_idle_anim_f1.png" id="3_jh3fe"]
+[ext_resource type="Texture2D" uid="uid://cl6ndnp1ih7ru" path="res://Assets/enemies/goblin/goblin_idle_anim_f2.png" id="4_pshit"]
+[ext_resource type="Texture2D" uid="uid://b6o63yv81il4y" path="res://Assets/enemies/goblin/goblin_idle_anim_f3.png" id="5_5sf1i"]
+[ext_resource type="Texture2D" uid="uid://c5veva3kxsv5x" path="res://Assets/enemies/goblin/goblin_idle_anim_f4.png" id="6_dt4b5"]
+[ext_resource type="Texture2D" uid="uid://caqdls4cr1tuu" path="res://Assets/enemies/goblin/goblin_idle_anim_f5.png" id="7_ffdoa"]
+[ext_resource type="Texture2D" uid="uid://di841qylid44g" path="res://Assets/enemies/goblin/goblin_run_anim_f0.png" id="8_mki4k"]
+[ext_resource type="Texture2D" uid="uid://beblcji3buaxg" path="res://Assets/enemies/goblin/goblin_run_anim_f1.png" id="9_teoi0"]
+[ext_resource type="Texture2D" uid="uid://to50b3qu6bp1" path="res://Assets/enemies/goblin/goblin_run_anim_f2.png" id="10_4kh1l"]
+[ext_resource type="Texture2D" uid="uid://5toefp4lucua" path="res://Assets/enemies/goblin/goblin_run_anim_f3.png" id="11_w2g4e"]
+[ext_resource type="Texture2D" uid="uid://sp0hmoqm5c0j" path="res://Assets/enemies/goblin/goblin_run_anim_f4.png" id="12_hxdem"]
+[ext_resource type="Texture2D" uid="uid://dof0t8ea6guor" path="res://Assets/enemies/goblin/goblin_run_anim_f5.png" id="13_j0buo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u07sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p3ekd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jh3fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pshit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5sf1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dt4b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ffdoa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mki4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_teoi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4kh1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w2g4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hxdem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j0buo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1ifts"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.854634, 0.854634, 0.854634, 1), Color(0.0415072, 0.0415072, 0.0415072, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thpen"]
+_data = {
+"die": SubResource("Animation_1ifts")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3q8vt"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyc5s"]
+size = Vector2(9, 5.5)
+
+[node name="Goblin" type="CharacterBody2D"]
+script = ExtResource("1_ynoq4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.448071, 0.448071, 0.448071, 1)
+sprite_frames = SubResource("SpriteFrames_u07sa")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_thpen")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3q8vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_vyc5s")
