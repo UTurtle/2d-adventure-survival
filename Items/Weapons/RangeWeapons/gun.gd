@@ -28,10 +28,10 @@ func attack() -> void:
 func shoot_gun_attack() -> void:
 	for i in range(shoot_gun_n):
 		var b = ARROW_SCENE.instantiate()
-		get_tree().root.add_child(b)
 		
 		b.global_transform = shoot_pos.global_transform
 		b.position = b.position + Vector2(10, 0).rotated(randf_range(0, 2*PI))
+		get_tree().root.add_child(b)
 
 func shoot_gun_attack_setting(wait_time, n) -> void:
 	shoot_gun_attack_timer.stop()
@@ -41,10 +41,6 @@ func shoot_gun_attack_setting(wait_time, n) -> void:
 	shoot_gun_n = n
 	
 func circle_boom_attack() -> void:
-	for i in range(circle_boom_n):
-		var b = ARROW_SCENE.instantiate()
-		get_tree().root.add_child(b)
-		
 	var step = 2 * PI / circle_boom_n
 	
 	for i in range(circle_boom_n):
