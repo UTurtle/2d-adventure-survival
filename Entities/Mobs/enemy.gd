@@ -27,12 +27,12 @@ func _physics_process(_delta):
 
 func _process(delta):
 	if health <= 0:
-		_on_death()
+		on_death()
 		self.set_process(false)
 		self.set_physics_process(false)
 
-func _on_death():
-	Global.score += score
+func on_death():
+	SaveData.score += score
 	animation.play("die")
 
 #if Input.is_action_pressed("left"):

@@ -81,6 +81,8 @@ bg_color = Color(0.686526, 0.107614, 0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_dj707")
+speed = null
+health = null
 afterimage = ExtResource("2_eyp52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -134,4 +136,4 @@ max_value = 10.0
 value = 5.0
 show_percentage = false
 
-[connection signal="area_entered" from="HurtBox" to="." method="on_hurt_box"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_area_2d_area_entered"]

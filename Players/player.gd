@@ -1,7 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
+#@onready var player = SaveData.players[0]
 @export var speed = 100
-@export var health = 100
+@export var health = 10
+@export var melee_damage = 1
 
 @export var afterimage : PackedScene
 
@@ -9,7 +12,15 @@ extends CharacterBody2D
 @onready var weapons = $Weapons
 @onready var _sprite = $AnimatedSprite2D
 @onready var dash = $Dash
-@onready var gun = $Gun
+var main_weapon
+
+func _ready():
+	SaveData.health = health
+	SaveData.score = 0
+	main_weapon = weapons.get_child(0)
+
+func level_updated():
+	pass
 
 func sprite_lookat():
 	if _sprite.global_position > get_global_mouse_position():
@@ -33,7 +44,8 @@ func get_input():
 	
 	# main attack
 	if Input.is_action_pressed("main_attack"):
-		gun.shoot()
+		main_weapon.attack()
+		
 	
 
 func dash_effect():
@@ -50,5 +62,17 @@ func _physics_process(_delta):
 	sprite_lookat()
 	move_and_slide()
 	
+func _process(delta):
+	if SaveData.health <= 0:
+		on_death()
+		self.set_process(false)
+		self.set_physics_process(false)	
+	
 func on_death():
-	pass
+	get_tree().reload_current_scene()
+	
+func on_hurt_box(area):
+	var entity = area.get_parent()
+	if entity is Enemy:
+		if SaveData.health > 0:
+			SaveData.health -= entity.melee_damage
