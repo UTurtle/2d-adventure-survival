@@ -10,6 +10,8 @@ var shoot_gun_n = 10
 var circle_boom_n = 31
 
 func _ready() -> void:
+	self.visible = false
+	
 	shoot_gun_attack_timer.wait_time = 0.5
 	shoot_gun_attack_timer.autostart = true
 	shoot_gun_attack_timer.connect("timeout", shoot_gun_attack)
@@ -52,8 +54,6 @@ func circle_boom_attack() -> void:
 		spawn_point.rotation += pos.angle()
 		get_tree().root.add_child(spawn_point)
 		
-		
-
 func circle_boom_attack_setting(wait_time, n) -> void:
 	circle_boom_attack_timer.stop()
 	circle_boom_attack_timer.wait_time = wait_time
