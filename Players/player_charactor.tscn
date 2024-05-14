@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctn1rajvkfbvi"]
+[gd_scene load_steps=25 format=3 uid="uid://ctn1rajvkfbvi"]
 
 [ext_resource type="Script" path="res://Players/player.gd" id="1_dj707"]
 [ext_resource type="PackedScene" uid="uid://cnpjf77xsq3i" path="res://Entities/Attributes/afterimage.tscn" id="2_eyp52"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dcmldg66etnjp" path="res://Assets/heroes/knight/knight_run_anim_f5.png" id="14_ypgjj"]
 [ext_resource type="PackedScene" uid="uid://cuqkpuv42j5ks" path="res://Entities/Attributes/dash.tscn" id="15_s86bd"]
 [ext_resource type="PackedScene" uid="uid://bip7n0baerw3v" path="res://Items/Weapons/RangeWeapons/gun.tscn" id="16_be0s3"]
+[ext_resource type="PackedScene" uid="uid://bhlotwuhfa714" path="res://Items/PassiveWeapon/circle_boom.tscn" id="16_k1n0v"]
 [ext_resource type="PackedScene" uid="uid://dac825pawqpqn" path="res://Items/Weapons/RangeWeapons/shotgun.tscn" id="17_7cuqv"]
 [ext_resource type="Script" path="res://Players/PlayerGUI.gd" id="17_jkmss"]
 
@@ -97,6 +98,8 @@ animation = &"walk"
 [node name="Dash" parent="." instance=ExtResource("15_s86bd")]
 
 [node name="Items" type="Node2D" parent="."]
+
+[node name="CircleBoom" parent="Items" instance=ExtResource("16_k1n0v")]
 
 [node name="Weapons" type="Node2D" parent="."]
 

@@ -69,7 +69,7 @@ func get_input():
 	velocity = input_direction * dash.speed if dash.is_dashing() else input_direction * speed
 	
 	# main attack
-	if Input.is_action_pressed("main_attack"):
+	if Input.is_action_pressed("main_attack") and main_weapon.can_attack:
 		main_weapon.attack()
 		
 
