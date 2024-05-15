@@ -101,8 +101,6 @@ animation = &"walk"
 [node name="Items" type="Node2D" parent="."]
 
 [node name="ArrowShapeWave" parent="Items" instance=ExtResource("16_8w1g4")]
-bullet_dur = 10
-n = 1
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2(0.05, 3.145)
@@ -112,7 +110,7 @@ position = Vector2(0.05, 3.145)
 [node name="Gun" parent="Weapons" instance=ExtResource("17_qn87i")]
 
 [node name="ShotGun" parent="Weapons" instance=ExtResource("18_qx0mb")]
-bullet_speed = 2
+bullet_speed = 250
 
 [node name="HurtBox" type="Area2D" parent="."]
 

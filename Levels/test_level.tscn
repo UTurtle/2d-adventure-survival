@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://g4mpyvaybytr"]
+[gd_scene load_steps=7 format=3 uid="uid://g4mpyvaybytr"]
 
 [ext_resource type="Texture2D" uid="uid://bwodihwvgreym" path="res://Assets/full tilemap.png" id="1_6gqny"]
 [ext_resource type="PackedScene" uid="uid://gpmw0mvemtrr" path="res://Entities/Players/player.tscn" id="2_acpl7"]
-[ext_resource type="PackedScene" uid="uid://dvx4l3n0wlcdt" path="res://Objects/goblin_spawner.tscn" id="3_ruk5s"]
+[ext_resource type="PackedScene" uid="uid://b085fmmr0fab5" path="res://Objects/randomize_goblin_spawner.tscn" id="3_0j1hi"]
+[ext_resource type="PackedScene" uid="uid://2w6bjfrd7jrm" path="res://Entities/Mobs/Goblin/slime.tscn" id="4_sw3xh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3eub"]
 texture = ExtResource("1_6gqny")
@@ -231,4 +232,7 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("2_acpl7")]
 
-[node name="GoblinSpawner" parent="." instance=ExtResource("3_ruk5s")]
+[node name="RandomizeGoblinSpawner" parent="." instance=ExtResource("3_0j1hi")]
+
+[node name="RandomizeSlimeSpawner2" parent="." instance=ExtResource("3_0j1hi")]
+enmey = ExtResource("4_sw3xh")

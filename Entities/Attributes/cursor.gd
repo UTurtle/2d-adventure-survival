@@ -2,8 +2,6 @@ extends Sprite2D
 
 var rand = RandomNumberGenerator.new()
 
-@onready var _cursor = $Cursor
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

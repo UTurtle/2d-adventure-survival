@@ -6,6 +6,6 @@ extends Control
 func _ready():
 	health_bar.max_value = SaveData.health
 
-func _process(delta):
+func _process(_delta):
 	health_bar.value = SaveData.health
 	score_label.text = str(SaveData.score)

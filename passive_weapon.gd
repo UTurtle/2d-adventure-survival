@@ -1,7 +1,13 @@
 extends Node2D
-class_name PassiveWeapon
+class_name PassiveSkill
 
 var attack_cooltimer
+
+func get_input():
+	look_at(get_global_mouse_position())
+	
+func _physics_process(_delta):
+	get_input()
 
 func _ready() -> void:
 	attack_cooltimer = Timer.new()

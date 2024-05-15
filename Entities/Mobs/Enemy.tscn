@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://curhoguj2btub"]
+[gd_scene load_steps=2 format=3 uid="uid://curhoguj2btub"]
+
+[ext_resource type="Script" path="res://Entities/Mobs/enemy.gd" id="1_qg4rx"]
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_qg4rx")

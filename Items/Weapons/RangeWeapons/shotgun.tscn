@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dac825pawqpqn"]
 
 [ext_resource type="Script" path="res://Items/Weapons/RangeWeapons/shotgun.gd" id="1_o5gx1"]
-[ext_resource type="Texture2D" uid="uid://bl7qn837octbj" path="res://Assets/props_itens/key_silver.png" id="2_n1sku"]
+[ext_resource type="Texture2D" uid="uid://dfh2k4s6xkk1" path="res://Assets/props_itens/torch_anim_f0.png" id="2_r6rib"]
 
 [node name="Shotgun" type="Node2D"]
 script = ExtResource("1_o5gx1")
@@ -9,7 +9,7 @@ bullet_speed = 25
 bullet_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_n1sku")
+texture = ExtResource("2_r6rib")
 
 [node name="ShootPos" type="Marker2D" parent="."]
 position = Vector2(8, 0)

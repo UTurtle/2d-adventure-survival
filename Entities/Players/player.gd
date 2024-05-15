@@ -19,6 +19,8 @@ func _ready():
 	SaveData.health = health
 	SaveData.score = 0
 	switch_weapon(current_weapon_index, true)
+	
+# TODO: functioned bullet 클래스 만들기
 
 # TODO: leveling system
 func level_updated():
@@ -29,9 +31,6 @@ func sprite_lookat():
 		_sprite.flip_h = true
 	elif _sprite.global_position < get_global_mouse_position():
 		_sprite.flip_h = false
-		
-# TODO: refactor weapon methods.
-# TODO: set weapon main funcion -> attack, skill -> process
 
 func change_weapon_input():
 	if Input.is_action_just_pressed("1"):
@@ -94,6 +93,7 @@ func _process(delta):
 		self.set_physics_process(false)	
 	
 func on_death():
+	_ready()
 	get_tree().reload_current_scene()
 	
 func on_hurt_box(area):

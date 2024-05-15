@@ -1,4 +1,4 @@
-extends PassiveWeapon
+extends PassiveSkill
 class_name CircleBoom
 
 @export var bullet_speed = 100
@@ -22,7 +22,7 @@ func passive_attack() -> void:
 	
 	for i in range(circle_boom_n):
 		var b = BULLET.instantiate()
-		var pos = Vector2(circle_boom_n, 0).rotated(step * i)
+		var pos = Vector2(circle_boom_n/2, 0).rotated(step * i)
 		
 		b = set_bullet_property(b)
 		

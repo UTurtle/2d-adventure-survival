@@ -1,7 +1,7 @@
 extends Weapon
 class_name RangeWeapon
 
-@export var bullet_speed = 300
+@export var bullet_speed = 2
 @export var bullet_dur = 1
 @export var bullet_damage = 1
 @export var bullet_scale = Vector2(.5, .5)
