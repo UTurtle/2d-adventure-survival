@@ -1,31 +1,23 @@
 extends RangeWeapon
 
 @onready var shoot_pos = $ShootPos
-const ARROW_SCENE: PackedScene = preload("res://Items/Weapons/RangeWeapons/Bullets/bullet.tscn")
+const BULLET: PackedScene = preload("res://Items/Weapons/RangeWeapons/Bullets/bullet.tscn")
 
-@onready var shoot_gun_attack_timer = $ShotgunAttackTimer
-var can_attack = true
 var shoot_gun_n = 10
 
 func _ready() -> void:
-	self.visible = false
-	shoot_gun_attack_timer.wait_time = 0.2
-	shoot_gun_attack_timer.connect("timeout", update_can_attack)
-
-func update_can_attack():
-	can_attack = true
-
+	super()
+	set_cooltime(0.15)
+	
 func attack() -> void:
-	shoot_gun_attack_timer.start()
-	can_attack = false
 	for i in range(shoot_gun_n):
-		var b = ARROW_SCENE.instantiate()
+		var b = BULLET.instantiate()
+		b = set_bullet_property(b)
 		
 		b.global_transform = shoot_pos.global_transform
-		b.position = b.position + Vector2(10, 0).rotated(randf_range(0, 2*PI))
+		b.position = b.position + Vector2(10, 0).rotated(randf_range(0, 4*PI))
 		get_tree().root.add_child(b)
 
-func shoot_gun_attack_setting(wait_time, n) -> void:
-	shoot_gun_attack_timer.wait_time = wait_time
+func shoot_gun_attack_setting(n) -> void:
 	shoot_gun_n = n
 	

@@ -70,8 +70,7 @@ func get_input():
 	
 	# main attack
 	if Input.is_action_pressed("main_attack") and main_weapon.can_attack:
-		main_weapon.attack()
-		
+		main_weapon.start_attack()
 
 func dash_effect():
 	var afterimage = afterimage.instantiate()

@@ -25,7 +25,7 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	if health <= 0:
 		on_death()
 		self.set_process(false)

@@ -11,9 +11,3 @@ texture = ExtResource("1_wsna3")
 
 [node name="ShootPos" type="Marker2D" parent="."]
 position = Vector2(8, 0)
-
-[node name="ShotgunAttackTimer" type="Timer" parent="."]
-
-[node name="CircleBoomAttackTimer" type="Timer" parent="."]
-
-[node name="GunAttackTimer" type="Timer" parent="."]

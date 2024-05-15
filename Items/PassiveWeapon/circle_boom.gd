@@ -1,39 +1,34 @@
-extends RangeWeapon
+extends PassiveWeapon
+class_name CircleBoom
 
+@export var bullet_speed = 100
+@export var bullet_dur = 1
+@export var bullet_damage = 1
+@export var bullet_scale = Vector2(0.4, 0.4)
+
+@export var circle_boom_n = 31
 @onready var shoot_pos = $ShootPos
-const ARROW_SCENE: PackedScene = preload("res://Items/Weapons/RangeWeapons/Bullets/bullet.tscn")
+const BULLET: PackedScene = preload("res://Items/Weapons/RangeWeapons/Bullets/bullet.tscn")
 
-@onready var circle_boom_attack_timer = $CircleBoomAttackTimer
-var circle_boom_n = 31
+func set_bullet_property(b):
+	b.damage = bullet_damage
+	b.dur = bullet_dur
+	b.speed = bullet_speed
+	b.get_child(0).scale = bullet_scale
+	return b
 
-func _ready() -> void:
-	self.visible = false
-	
-	circle_boom_attack_timer.wait_time = 0.7
-	circle_boom_attack_timer.autostart = true
-	circle_boom_attack_timer.connect("timeout", circle_boom_attack)
-	circle_boom_attack_timer.start()
-	
-func is_equipment(isUsing) -> void:
-	if isUsing:
-		circle_boom_attack_timer.start()
-	else:
-		circle_boom_attack_timer.stop()
-	
-func circle_boom_attack() -> void:
+func passive_attack() -> void:
 	var step = 2 * PI / circle_boom_n
 	
 	for i in range(circle_boom_n):
-		var spawn_point = ARROW_SCENE.instantiate()
+		var b = BULLET.instantiate()
 		var pos = Vector2(circle_boom_n, 0).rotated(step * i)
 		
-		spawn_point.global_transform = shoot_pos.global_transform
-		spawn_point.position += pos
-		spawn_point.rotation += pos.angle()
-		get_tree().root.add_child(spawn_point)
+		b = set_bullet_property(b)
 		
-func circle_boom_attack_setting(wait_time, n) -> void:
-	circle_boom_attack_timer.stop()
-	circle_boom_attack_timer.wait_time = wait_time
-	circle_boom_attack_timer.start()
+		b.global_transform = shoot_pos.global_transform
+		b.position += pos
+		b.rotation += pos.angle()
+		get_tree().root.add_child(b)
+
 	

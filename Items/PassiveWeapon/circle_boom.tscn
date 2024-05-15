@@ -1,15 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhlotwuhfa714"]
+[gd_scene load_steps=2 format=3 uid="uid://bhlotwuhfa714"]
 
 [ext_resource type="Script" path="res://Items/PassiveWeapon/circle_boom.gd" id="1_pvto0"]
-[ext_resource type="Texture2D" uid="uid://bl7qn837octbj" path="res://Assets/props_itens/key_silver.png" id="2_j72ji"]
 
 [node name="CircleBoom" type="Node2D"]
 script = ExtResource("1_pvto0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_j72ji")
-
 [node name="ShootPos" type="Marker2D" parent="."]
 position = Vector2(8, 0)
-
-[node name="CircleBoomAttackTimer" type="Timer" parent="."]

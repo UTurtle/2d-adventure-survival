@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://g4mpyvaybytr"]
 
 [ext_resource type="Texture2D" uid="uid://bwodihwvgreym" path="res://Assets/full tilemap.png" id="1_6gqny"]
-[ext_resource type="PackedScene" uid="uid://gpmw0mvemtrr" path="res://Players/player.tscn" id="2_acpl7"]
+[ext_resource type="PackedScene" uid="uid://gpmw0mvemtrr" path="res://Entities/Players/player.tscn" id="2_acpl7"]
 [ext_resource type="PackedScene" uid="uid://dvx4l3n0wlcdt" path="res://Objects/goblin_spawner.tscn" id="3_ruk5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3eub"]

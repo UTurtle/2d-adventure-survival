@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs8xrncu6yks0"]
+[gd_scene load_steps=4 format=3 uid="uid://dyupr2h51rthl"]
 
-[ext_resource type="Script" path="res://Items/Weapons/RangeWeapons/Bullets/bullet.gd" id="1_1frl7"]
-[ext_resource type="Texture2D" uid="uid://buple601x3h0c" path="res://Assets/bullets/bullet.png" id="2_13yh3"]
+[ext_resource type="Script" path="res://Items/Weapons/RangeWeapons/Bullets/acceleration_bullet.gd" id="1_ngseb"]
+[ext_resource type="Texture2D" uid="uid://buple601x3h0c" path="res://Assets/bullets/bullet.png" id="2_xb1i1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kig4"]
 radius = 9.0
 
-[node name="Bullet" type="Node2D"]
+[node name="AccelerationBullet" type="Node2D"]
 scale = Vector2(0.4, 0.4)
-script = ExtResource("1_1frl7")
+script = ExtResource("1_ngseb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.325, 0.325)
-texture = ExtResource("2_13yh3")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xb1i1")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 

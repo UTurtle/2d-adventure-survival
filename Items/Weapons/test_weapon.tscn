@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxlajp7tvfgjo"]
+
+[ext_resource type="Script" path="res://Items/Weapons/weapon.gd" id="1_choeb"]
+[ext_resource type="Texture2D" uid="uid://bdletnqao3d4a" path="res://Assets/heroes/knight/weapon_sword_1.png" id="2_2slev"]
+
+[node name="TestWeapon" type="Node2D"]
+script = ExtResource("1_choeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2slev")
+
+[node name="ShootPos" type="Marker2D" parent="."]
+position = Vector2(8, 0)
