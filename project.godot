@@ -21,7 +21,7 @@ SaveData="*res://save_data.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/scale=4.05
 
 [input]

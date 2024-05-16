@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bok16aiikmitq"]
+
+[ext_resource type="Script" path="res://Items/Weapons/RangeWeapons/Bullets/rotate_cube_bullet.gd" id="1_wtnub"]
+[ext_resource type="Texture2D" uid="uid://buple601x3h0c" path="res://Assets/bullets/bullet.png" id="2_yakjp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6kig4"]
+radius = 9.0
+
+[node name="FunctionedBullet" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_wtnub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("2_yakjp")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_6kig4")
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

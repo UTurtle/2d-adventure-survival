@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3thdr3he616q"]
+
+[ext_resource type="Script" path="res://Skill/PassiveSkill/killing_snow_bullet_skill.gd" id="1_aq5r7"]
+
+[node name="KillingSnowBulletSkill" type="Node2D"]
+script = ExtResource("1_aq5r7")
+
+[node name="ShootPos" type="Marker2D" parent="."]

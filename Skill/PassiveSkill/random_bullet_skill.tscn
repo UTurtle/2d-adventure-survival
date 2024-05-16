@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4a0xa75tbq26"]
+
+[ext_resource type="Script" path="res://Skill/PassiveSkill/random_bullet_skill.gd" id="1_qwllw"]
+
+[node name="RandomBulletSkill" type="Node2D"]
+script = ExtResource("1_qwllw")
+
+[node name="ShootPos" type="Marker2D" parent="."]

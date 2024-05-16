@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://deabn7106n6gc"]
+
+[ext_resource type="Script" path="res://Skill/PassiveSkill/FunctionedBulletSkills/rotate_cube_skill.gd" id="1_clvgn"]
+
+[node name="RotateCubeSkill" type="Node2D"]
+script = ExtResource("1_clvgn")
+
+[node name="ShootPos" type="Marker2D" parent="."]
