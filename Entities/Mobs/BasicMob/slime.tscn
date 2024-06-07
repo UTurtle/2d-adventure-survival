@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://2w6bjfrd7jrm"]
 
-[ext_resource type="Script" path="res://Entities/Mobs/Goblin/slime.gd" id="1_060p4"]
+[ext_resource type="Script" path="res://Entities/Mobs/BasicMob/slime.gd" id="1_060p4"]
 [ext_resource type="PackedScene" uid="uid://p6ru8lsuyalu" path="res://Entities/Attributes/knockback.tscn" id="2_ou2na"]
 [ext_resource type="Texture2D" uid="uid://bc3idd2pkfnex" path="res://Assets/enemies/slime/slime_idle_anim_f0.png" id="3_3tkec"]
 [ext_resource type="Texture2D" uid="uid://ba3r3ie8sreae" path="res://Assets/enemies/slime/slime_idle_anim_f1.png" id="4_2ukms"]

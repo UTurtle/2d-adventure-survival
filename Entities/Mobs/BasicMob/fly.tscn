@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://cepxe8ujfr6eh"]
+
+[ext_resource type="Script" path="res://Entities/Mobs/BasicMob/fly.gd" id="1_hmdeh"]
+[ext_resource type="PackedScene" uid="uid://p6ru8lsuyalu" path="res://Entities/Attributes/knockback.tscn" id="2_6jupy"]
+[ext_resource type="Texture2D" uid="uid://ub18owm6w54t" path="res://Assets/enemies/flying creature/fly_anim_f0.png" id="3_1xenr"]
+[ext_resource type="Texture2D" uid="uid://cuxttgqnuffa7" path="res://Assets/enemies/flying creature/fly_anim_f1.png" id="4_pkbyu"]
+[ext_resource type="Texture2D" uid="uid://d0fl14ofo0ab5" path="res://Assets/enemies/flying creature/fly_anim_f2.png" id="5_qgbhx"]
+[ext_resource type="Texture2D" uid="uid://dmsq2cbdbce2t" path="res://Assets/enemies/flying creature/fly_anim_f3.png" id="6_x5rdn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3q8vt"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyc5s"]
+size = Vector2(9, 5.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u07sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1xenr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pkbyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qgbhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x5rdn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1xenr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pkbyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qgbhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x5rdn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1ifts"]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.0415072, 0.0415072, 0.0415072, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0eaww"]
+resource_name = "knockback"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00170891, 0.062404, 0.092281),
+"transitions": PackedFloat32Array(3.605, 3.605, 3.605),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.684764, 0.61114, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thpen"]
+_data = {
+"die": SubResource("Animation_1ifts"),
+"knockback": SubResource("Animation_0eaww")
+}
+
+[node name="Fly" type="CharacterBody2D"]
+script = ExtResource("1_hmdeh")
+score = 3
+melee_damage = 2
+
+[node name="KnockBack" parent="." instance=ExtResource("2_6jupy")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3q8vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_vyc5s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.91005, 0.91005, 0.91005, 1)
+sprite_frames = SubResource("SpriteFrames_u07sa")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_thpen")
+}

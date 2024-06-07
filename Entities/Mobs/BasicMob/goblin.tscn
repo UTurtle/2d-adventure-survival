@@ -1,19 +1,19 @@
 [gd_scene load_steps=21 format=3 uid="uid://c4jor5jiy6t8a"]
 
-[ext_resource type="Script" path="res://Entities/Mobs/Goblin/goblin.gd" id="1_ynoq4"]
-[ext_resource type="PackedScene" uid="uid://p6ru8lsuyalu" path="res://Entities/Attributes/knockback.tscn" id="2_ajhoj"]
-[ext_resource type="Texture2D" uid="uid://dqxwgkxyfiat3" path="res://Assets/enemies/goblin/goblin_idle_anim_f0.png" id="2_p3ekd"]
-[ext_resource type="Texture2D" uid="uid://cirbbf4q45iq1" path="res://Assets/enemies/goblin/goblin_idle_anim_f1.png" id="3_jh3fe"]
-[ext_resource type="Texture2D" uid="uid://cl6ndnp1ih7ru" path="res://Assets/enemies/goblin/goblin_idle_anim_f2.png" id="4_pshit"]
-[ext_resource type="Texture2D" uid="uid://b6o63yv81il4y" path="res://Assets/enemies/goblin/goblin_idle_anim_f3.png" id="5_5sf1i"]
-[ext_resource type="Texture2D" uid="uid://c5veva3kxsv5x" path="res://Assets/enemies/goblin/goblin_idle_anim_f4.png" id="6_dt4b5"]
-[ext_resource type="Texture2D" uid="uid://caqdls4cr1tuu" path="res://Assets/enemies/goblin/goblin_idle_anim_f5.png" id="7_ffdoa"]
-[ext_resource type="Texture2D" uid="uid://di841qylid44g" path="res://Assets/enemies/goblin/goblin_run_anim_f0.png" id="8_mki4k"]
-[ext_resource type="Texture2D" uid="uid://beblcji3buaxg" path="res://Assets/enemies/goblin/goblin_run_anim_f1.png" id="9_teoi0"]
-[ext_resource type="Texture2D" uid="uid://to50b3qu6bp1" path="res://Assets/enemies/goblin/goblin_run_anim_f2.png" id="10_4kh1l"]
-[ext_resource type="Texture2D" uid="uid://5toefp4lucua" path="res://Assets/enemies/goblin/goblin_run_anim_f3.png" id="11_w2g4e"]
-[ext_resource type="Texture2D" uid="uid://sp0hmoqm5c0j" path="res://Assets/enemies/goblin/goblin_run_anim_f4.png" id="12_hxdem"]
-[ext_resource type="Texture2D" uid="uid://dof0t8ea6guor" path="res://Assets/enemies/goblin/goblin_run_anim_f5.png" id="13_j0buo"]
+[ext_resource type="Script" path="res://Entities/Mobs/BasicMob/goblin.gd" id="1_rryyy"]
+[ext_resource type="PackedScene" uid="uid://p6ru8lsuyalu" path="res://Entities/Attributes/knockback.tscn" id="2_ipvua"]
+[ext_resource type="Texture2D" uid="uid://dqxwgkxyfiat3" path="res://Assets/enemies/goblin/goblin_idle_anim_f0.png" id="3_yifrb"]
+[ext_resource type="Texture2D" uid="uid://cirbbf4q45iq1" path="res://Assets/enemies/goblin/goblin_idle_anim_f1.png" id="4_r7xff"]
+[ext_resource type="Texture2D" uid="uid://cl6ndnp1ih7ru" path="res://Assets/enemies/goblin/goblin_idle_anim_f2.png" id="5_3rxru"]
+[ext_resource type="Texture2D" uid="uid://b6o63yv81il4y" path="res://Assets/enemies/goblin/goblin_idle_anim_f3.png" id="6_wa47w"]
+[ext_resource type="Texture2D" uid="uid://c5veva3kxsv5x" path="res://Assets/enemies/goblin/goblin_idle_anim_f4.png" id="7_ae0ib"]
+[ext_resource type="Texture2D" uid="uid://caqdls4cr1tuu" path="res://Assets/enemies/goblin/goblin_idle_anim_f5.png" id="8_2droh"]
+[ext_resource type="Texture2D" uid="uid://di841qylid44g" path="res://Assets/enemies/goblin/goblin_run_anim_f0.png" id="9_cnpya"]
+[ext_resource type="Texture2D" uid="uid://beblcji3buaxg" path="res://Assets/enemies/goblin/goblin_run_anim_f1.png" id="10_lfojg"]
+[ext_resource type="Texture2D" uid="uid://to50b3qu6bp1" path="res://Assets/enemies/goblin/goblin_run_anim_f2.png" id="11_wd3j7"]
+[ext_resource type="Texture2D" uid="uid://5toefp4lucua" path="res://Assets/enemies/goblin/goblin_run_anim_f3.png" id="12_bw1k8"]
+[ext_resource type="Texture2D" uid="uid://sp0hmoqm5c0j" path="res://Assets/enemies/goblin/goblin_run_anim_f4.png" id="13_hwgdw"]
+[ext_resource type="Texture2D" uid="uid://dof0t8ea6guor" path="res://Assets/enemies/goblin/goblin_run_anim_f5.png" id="14_j0gdh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3q8vt"]
 radius = 6.08276
@@ -25,22 +25,22 @@ size = Vector2(9, 5.5)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_p3ekd")
+"texture": ExtResource("3_yifrb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_jh3fe")
+"texture": ExtResource("4_r7xff")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_pshit")
+"texture": ExtResource("5_3rxru")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_5sf1i")
+"texture": ExtResource("6_wa47w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_dt4b5")
+"texture": ExtResource("7_ae0ib")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ffdoa")
+"texture": ExtResource("8_2droh")
 }],
 "loop": true,
 "name": &"idle",
@@ -48,22 +48,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_mki4k")
+"texture": ExtResource("9_cnpya")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_teoi0")
+"texture": ExtResource("10_lfojg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_4kh1l")
+"texture": ExtResource("11_wd3j7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_w2g4e")
+"texture": ExtResource("12_bw1k8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_hxdem")
+"texture": ExtResource("13_hwgdw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_j0buo")
+"texture": ExtResource("14_j0gdh")
 }],
 "loop": true,
 "name": &"walk",
@@ -123,10 +123,10 @@ _data = {
 }
 
 [node name="Goblin" type="CharacterBody2D"]
-script = ExtResource("1_ynoq4")
+script = ExtResource("1_rryyy")
 health = 10
 
-[node name="KnockBack" parent="." instance=ExtResource("2_ajhoj")]
+[node name="KnockBack" parent="." instance=ExtResource("2_ipvua")]
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ctn1rajvkfbvi"]
+[gd_scene load_steps=26 format=3 uid="uid://ctn1rajvkfbvi"]
 
 [ext_resource type="Script" path="res://Entities/Players/player.gd" id="1_om8ow"]
 [ext_resource type="PackedScene" uid="uid://cnpjf77xsq3i" path="res://Entities/Attributes/afterimage.tscn" id="2_rhq3p"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dcmldg66etnjp" path="res://Assets/heroes/knight/knight_run_anim_f5.png" id="14_i0fir"]
 [ext_resource type="PackedScene" uid="uid://cuqkpuv42j5ks" path="res://Entities/Attributes/dash.tscn" id="15_hnquk"]
 [ext_resource type="PackedScene" uid="uid://b8ij05qsnklot" path="res://Skill/PassiveSkill/FunctionedBulletSkills/furie_bullet_skill.tscn" id="16_gr03k"]
-[ext_resource type="PackedScene" uid="uid://deabn7106n6gc" path="res://Skill/PassiveSkill/FunctionedBulletSkills/rotate_cube_skill.tscn" id="16_rv6i3"]
 [ext_resource type="PackedScene" uid="uid://bip7n0baerw3v" path="res://Items/Weapons/RangeWeapons/gun.tscn" id="17_qn87i"]
 [ext_resource type="PackedScene" uid="uid://dxlajp7tvfgjo" path="res://Items/Weapons/test_weapon.tscn" id="17_xow68"]
 [ext_resource type="PackedScene" uid="uid://dac825pawqpqn" path="res://Items/Weapons/RangeWeapons/shotgun.tscn" id="18_qx0mb"]
@@ -102,9 +101,6 @@ animation = &"walk"
 [node name="Items" type="Node2D" parent="."]
 
 [node name="FurieBulletSkill" parent="Items" instance=ExtResource("16_gr03k")]
-
-[node name="RotateCubeSkill" parent="Items" instance=ExtResource("16_rv6i3")]
-n = 10
 
 [node name="Weapons" type="Node2D" parent="."]
 position = Vector2(0.05, 3.145)
