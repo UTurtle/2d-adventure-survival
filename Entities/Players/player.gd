@@ -3,8 +3,8 @@ class_name Player
 
 #@onready var player = SaveData.players[0]
 @export var speed = 100
-@export var health = 10
-@export var melee_damage = 1
+@export var health = 10.0
+@export var melee_damage = 1.0
 
 @export var afterimage : PackedScene
 
@@ -17,14 +17,9 @@ var current_weapon_index = 0
 
 func _ready():
 	SaveData.health = health
+	SaveData.level = 0
 	SaveData.score = 0
 	switch_weapon(current_weapon_index, true)
-	
-# TODO: functioned bullet 클래스 만들기
-
-# TODO: leveling system
-func level_updated():
-	pass
 	
 func sprite_lookat():
 	if _sprite.global_position > get_global_mouse_position():
