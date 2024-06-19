@@ -1,7 +1,7 @@
 extends Node2D
 class_name Spawner
 
-@export var spawn_time = 0.3
+@export var spawn_time = 3
 @export var enmey : PackedScene = preload("res://Entities/Mobs/BasicMob/goblin.tscn")
 
 @onready var timer = $Timer
